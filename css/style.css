@@ -53,6 +53,12 @@
         padding: 10px;
         font-size: 20px;
         border-radius: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover{
+        transform: scale(1.05);           
+        background-color: #D45D49; 
     }
     
     article{
@@ -72,13 +78,14 @@
     }
     
     #div_questions{
+    padding: 20px;
     background-color:#85C1E9;
     width: 700px;
     margin: auto;
+  
     }
     
     .button{
-        margin: auto;
         display: inline-block;
     }
     
