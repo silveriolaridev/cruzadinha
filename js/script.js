@@ -1,4 +1,4 @@
-var special_words = ['CPU', 'ULA', 'Registradores', 'RAM', 'ROM', 'EPROM', 'FLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'Quad Core'];
+var special_words = ['cpu', 'ULA', 'Registradores', 'RAM', 'rom', 'EPROM', 'FLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'Quad Core'];
 
 var questions_list = [
     'Qual é a sigla para Central Process Unit?',
@@ -256,68 +256,119 @@ var word = {
 var widthTable = 18;
 var heightTable = 18;
 
-
-var cont_correctAnswer = 0;
-
 function fecharModal() {
     modal_inicio.style.display = 'none';
     renderizarTabela();
-    continuarJogo();
+    listarPerguntas();
 }
 
-function continuarJogo() {
-    span_pergunta.innerHTML = `<b>${cont_correctAnswer + 1}.</b> ${questions_list[cont_correctAnswer]}`;
+function verificarResposta() {
+    var resposta = input_resposta.value;
+    
+    if (resposta != '') {
+        resposta = resposta.toUpperCase();
+        var incluiReposta = special_words.includes(resposta);
 
-    if (cont_correctAnswer == 1) {
+        if (incluiReposta) {
+            span_situacao.classList.remove('wrongAnswer');
+            span_situacao.classList.add('correctAnswer');
+            span_situacao.innerHTML = 'Resposta Correta!';
+            var indiceResposta = special_words.indexOf(resposta);
+        }
+        else {
+            span_situacao.classList.remove('correctAnswer');
+            span_situacao.classList.add('wrongAnswer');
+            span_situacao.innerHTML = 'Resposta Incorreta, tente novamente';
+        } 
+
+        span_situacao.value = '';
+        continuarJogo(indiceResposta);
+    }
+    else {
+        alert('Por Favor, digite uma resposta na caixa de texto');
+    }
+}
+
+function continuarJogo(indiceResposta) {
+    indiceResposta++;
+
+    if (indiceResposta == 1) {
         word.word1.write();
+        span_pergunta0.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 2) {
+    else if (indiceResposta == 2) {
         word.word2.write();
+        span_pergunta1.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 3) {
+    else if (indiceResposta == 3) {
         word.word3.write();
+        span_pergunta2.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 4) {
+    else if (indiceResposta == 4) {
         word.word4.write();
+        span_pergunta3.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 5) {
+    else if (indiceResposta == 5) {
         word.word5.write();
+        span_pergunta4.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 6) {
+    else if (indiceResposta == 6) {
         word.word6.write();
+        span_pergunta5.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 7) {
+    else if (indiceResposta == 7) {
         word.word7.write();
+        span_pergunta6.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 8) {
+    else if (indiceResposta == 8) {
         word.word8.write();
+        span_pergunta7.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 9) {
+    else if (indiceResposta == 9) {
         word.word9.write();
+        span_pergunta8.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 10) {
+    else if (indiceResposta == 10) {
         word.word10.write();
+        span_pergunta9.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 11) {
+    else if (indiceResposta == 11) {
         word.word11.write();
+        span_pergunta10.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 12) {
+    else if (indiceResposta == 12) {
         word.word12.write();
+        span_pergunta11.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 13) {
+    else if (indiceResposta == 13) {
         word.word13.write();
+        span_pergunta12.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 14) {
+    else if (indiceResposta == 14) {
         word.word14.write();
+        span_pergunta13.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 15) {
+    else if (indiceResposta == 15) {
         word.word15.write();
+        span_pergunta14.style.textDecoration = 'line-through';
     }
-    else if (cont_correctAnswer == 16) {
+    else if (indiceResposta == 16) {
         word.word16.write();
+        span_pergunta15.style.textDecoration = 'line-through';
+    }
+}
+
+function listarPerguntas() {
+    var tamanho_lista = questions_list.length;
+    var estrutura = '';
+    for (var i = 0; i < tamanho_lista; i++) {
+        estrutura += 
+        `
+        <span id="span_pergunta${i}">${i+1}. ${questions_list[i]}</span> <br> <br>
+        `;
     }
 
-
+    div_perguntas.innerHTML = estrutura;
 }
 
 function pontuacao() {
@@ -345,12 +396,12 @@ function renderizarTabela() {
 
     document.querySelector('#div_canvasCruzada').innerHTML = tableGame;
 
-    paintCells();
+    pintarCelulas();
 }
 
 
 
-function paintCells() {
+function pintarCelulas() {
 
     for (item in filledCell) {
         var paintCell = document.getElementById(`cell_${filledCell[item]}`);
@@ -366,35 +417,5 @@ function paintCells() {
         if (initial == 2 || initial == 3) {
             paintIndex_cell.innerHTML = `<span style="color: red; font-size:10px">3_4</span>`;
         }
-    }
-}
-
-function verificarResposta() {
-    var resposta = input_resposta.value;
-
-    if (resposta != '') {
-        // answer = answer.toLowerCase();
-        if (resposta == special_words[cont_correctAnswer]) {
-            div_situacao.classList.add('correctAnswer');
-            div_situacao.innerHTML = '<br>Resposta Correta!';
-            cont_correctAnswer++;
-        }
-        else {
-            div_situacao.classList.add('wrongAnswer');
-            div_situacao.innerHTML = '<br>Resposta Incorreta, tente novamente';
-        }
-        setTimeout(function () {
-            div_situacao.style.display = 'block';
-        }, 500);
-
-        setTimeout(function () {
-            div_situacao.style.display = 'none';
-        }, 3000);
-
-        div_situacao.value = '';
-        continuarJogo();
-    }
-    else {
-        alert('Por Favor, digite uma resposta na caixa de texto');
     }
 }

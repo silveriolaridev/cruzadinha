@@ -16,50 +16,58 @@
     </div>
 
     <div class="container">
-        <!-- div que mostra o resultado da tentativa -->
-        <div class="div-situacao" id="div_situacao"></div>
-        <br>
-        <div class="modal" id="modal_inicio">
-            <div class="conteudo-modal">
-                <div class="modal-header">
-                    <h2>Intruções do Jogo</h2>
-                    <span onclick="fecharModal()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                        </svg>
-                    </span>
-                </div>
-                <div class="modal-body">
-                    <p>Clique em "Começar o Jogo" para iniciar uma partida</p>
-                    <p>Perguntas serão exibidas na parte inferior do quadro
-                    <p>Insira a sua resposta na caixa de texto <br>
-                        e clique em "Verificar" para conferir a sua resposta</p>
-                    <p>A partida acaba quando as 16 questões forem respondidas</p>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="button" id="bt_start" onclick="fecharModal()">Começar o Jogo</button>
-                </div>
-            </div>
-        </div>
-        <br>
         <!-- div que renderiza a tabela -->
-        <div id="div_canvasCruzada"></div>
-        <br>
+        <div class="cruzadinha" id="div_canvasCruzada"></div>
         <!-- div de inserção das perguntas -->
         <div class="div-questoes">
-            <span id="span_pergunta"></span>
+            <!-- span que mostra o resultado da tentativa -->
+            <span class="span-situacao" id="span_situacao"></span>
+
+            <div id="div_perguntas">
+                <!-- span que mostra a pergunta em si -->
+                
+            </div>
+            <!-- input do usuario para inserir sua resposta -->
             <input type="text" id="input_resposta" placeholder="Sua Reposta"><br>
             <button onclick="verificarResposta()" class="button">Verificar</button>
         </div>
     </div>
+
+    <!-- footer -->
     <div class="container footer"><br>
-        <p>Developed by Larissa Silvério e Guilherme Vieira</p> <br>
-        <img src="img/java-script.png" class="icon">
-        <img src="img/html.png" class="icon">
-        <img src="img/css.png" class="icon"> <br>
+        <p>Developed by Larissa Silvério e Guilherme Vieira</p>
+        <div class="div-icons">
+            <img src="img/java-script.png" class="icon">
+            <img src="img/html.png" class="icon">
+            <img src="img/css.png" class="icon"> <br>
+        </div>
+    </div>
+
+    <!-- modal de inicio -->
+    <div class="modal" id="modal_inicio">
+        <div class="conteudo-modal">
+            <div class="modal-header">
+                <h2>Intruções do Jogo</h2>
+                <span onclick="fecharModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                </span>
+            </div>
+            <div class="modal-body">
+                <p>Clique em "Começar o Jogo" para iniciar uma partida</p>
+                <p>Perguntas serão exibidas na parte inferior do quadro
+                <p>Insira a sua resposta na caixa de texto <br>
+                    e clique em "Verificar" para conferir a sua resposta</p>
+                <p>A partida acaba quando as 16 questões forem respondidas</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="button" id="bt_start" onclick="fecharModal()">Começar o Jogo</button>
+            </div>
+        </div>
     </div>
 </body>
 
