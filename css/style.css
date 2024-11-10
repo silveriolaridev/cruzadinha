@@ -7,9 +7,22 @@
     background-color: #D7E6EB;
     font-family: monospace;
     }
+
+    header{
+        display: flex;
+        background-color: #2C3E50;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 90px;
+
+    }
+
     header h1{
     text-align: center;
     font-size: 30px;
+    color: #fff;
+  
     }
     
     
@@ -42,15 +55,18 @@
         border-radius: 20px;
     }
     
+    article{
+        margin-top: 20px;
+    }
     .container{
         width: 1100px;
         margin: auto;
+
     }
     
     #div_game{
         background-color: #ffffff;
         margin: auto;
-        
         width: 800px;
         height: 800px;
     }
@@ -96,6 +112,11 @@
     
     }
     #div_information{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
         width: 500px;
         margin: auto;
         background-color: #85C1E9;

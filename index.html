@@ -13,14 +13,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>Palavras-Cruzadas</h1><br>
-            <div class="div_button">
-                <center>
-                    <button class="button" id="bt_start" onclick="start()">Começar o Jogo</button>
-                    <button class="button" style="display: none" id="bt_destroyGame" onclick="destroyGrid()">Encerrar o
-                        Jogo</button>
-                </center>
-            </div>
+            <h1>CompuBuild Palavras-Cruzadas</h1><br>
             <br>
         </div>
     </header>
@@ -40,6 +33,11 @@
                         resposta<br><br>
                         A partida acaba quando as 16 questões forem respondidas <br><br>
                     </p>
+                    <div class="div_button">
+                        <button class="button" id="bt_start" onclick="start()">Começar o Jogo</button>
+                        <button class="button" style="display: none" id="bt_destroyGame" onclick="destroyGrid()">Encerrar o
+                            Jogo</button>
+                </div>
                 </div>
                 <br>
                 <div id="div_canvasCruzada"></div>
