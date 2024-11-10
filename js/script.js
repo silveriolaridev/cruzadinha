@@ -14,7 +14,7 @@ var questions_list = [
     'Grupo de linhas ou trilhas usadas para se referir a um endereço físico na memória. O número de trilhas determina a quantidade de endereços na memória física',
     'Também chamado de Memory Bus. É responsável para carregar os dados.',
     'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em setembro de 2009',
-    'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em novembro de 2008',    
+    'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em novembro de 2008',
     'Tipo de processador que possui dois processadores ou melhor dizendo ‘dois centros, núcleos ou cores de execução‘ no mesmo circuito integrado.  Cada core tem sua própria memória cash e controlador o que permite que funcione mais efetivamente do que um processador single',
     'Segue o mesmo princípio de um dual-core, mas agora em teoria tem o dobro da capacidade de processamento'
 ];
@@ -27,7 +27,8 @@ var filledCell = [2, 20, 38, 133, 134, 135, 59, 77, 95, 113, 131, 149,
     241, 259, 277, 295, 313, 117, 118, 113, 114, 37, 38, 39, 40, 41, 42,
     43, 44, 45, 3, 21, 39, 57, 75, 93, 111, 129, 147];
 
-var firstIndex= [2, 133, 59, 59, 272, 236, 116, 27, 203, 312, 270, 187, 117, 113, 37, 3];
+var firstIndex = [2, 133, 59, 59, 272, 236, 116, 27, 203, 312, 270, 187, 117, 113, 37, 3];
+
 
 var word = {
 
@@ -66,7 +67,7 @@ var word = {
             for (i in word.word3.letter) {
                 var findCell = document.querySelector(`#cell_${word.word3.position[i]}`);
 
-                findCell.innerHTML = word.word3.letter[i];   
+                findCell.innerHTML = word.word3.letter[i];
                 console.log(word.word3.letter[i]);
             }
             cell_59.innerHTML = '<span style="color: red; font-size:10px">3_4</span>R';
@@ -83,7 +84,7 @@ var word = {
                 findCell.innerHTML = word.word4.letter[i];
                 console.log(word.word4.letter[i]);
             }
-            cell_59.innerHTML = '<span style="color: red; font-size:10px">3_4</span>R';            
+            cell_59.innerHTML = '<span style="color: red; font-size:10px">3_4</span>R';
         }
     },
     word5: {
@@ -109,7 +110,7 @@ var word = {
                 findCell.innerHTML = word.word6.letter[i];
                 console.log(word.word6.letter[i]);
             }
-            cell_236.innerHTML= '<span style="color: red; font-size:10px">6</span>E';
+            cell_236.innerHTML = '<span style="color: red; font-size:10px">6</span>E';
         }
     },
     word7: {
@@ -139,7 +140,7 @@ var word = {
             cell_117.innerHTML = '<span style="color: red; font-size:10px">13</span>i';
             cell_153.innerHTML = '-';
             cell_207.innerHTML = '-';
-        
+
         }
     },
     word9: {
@@ -258,28 +259,14 @@ var heightTable = 18;
 
 var cont_correctAnswer = 0;
 
-function start() {
-    cont_correctAnswer = 0;
-    bt_start.style.display = 'none';
-    bt_destroyGame.style.display = 'block';
-    div_questions.style.display = 'block';
-    div_information.innerHTML = '';
-    renderGrid();
-    gameSequence();
-
+function fecharModal() {
+    modal_inicio.style.display = 'none';
+    renderizarTabela();
+    continuarJogo();
 }
 
-function destroyGrid() {
-    bt_start.style.display = 'block';
-    bt_destroyGame.style.display = 'none';
-    div_questions.style.display = 'none';
-
-    document.querySelector('#div_canvasCruzada').innerHTML = '';
-    pontuation();
-}
-
-function gameSequence() {
-    span_questionText.innerHTML = `<b>${cont_correctAnswer + 1}.</b> ${questions_list[cont_correctAnswer]}`;
+function continuarJogo() {
+    span_pergunta.innerHTML = `<b>${cont_correctAnswer + 1}.</b> ${questions_list[cont_correctAnswer]}`;
 
     if (cont_correctAnswer == 1) {
         word.word1.write();
@@ -328,33 +315,26 @@ function gameSequence() {
     }
     else if (cont_correctAnswer == 16) {
         word.word16.write();
-
-        setTimeout(function () {
-            destroyGrid();
-        }, 3000);
     }
 
 
 }
 
-
-function pontuation() {
-    div_information.style.display = 'block';
-
-    div_information.innerHTML = '<h1 style="text-align: center;">Parabéns!!</h1><br><br><p style="text-align: center;">Você finalizou o jogo</p><br><br>';
+function pontuacao() {
+    div_situacao.innerHTML = '<h1 style="text-align: center;">Parabéns!!</h1><br><br><p style="text-align: center;">Você finalizou o jogo</p><br><br>';
 }
 
-function renderGrid() {
+function renderizarTabela() {
     var tableGame = '<table id="gridGame" cellspacing=0 cellpadding=0>';
 
-    // &nbsp its used to set null value to a cell
+    // &nbsp é usado para mostrar que uma célula de tabela tem valor nulo
     var cellContent_tableGame = '&nbsp';
     var cell = 0;
     for (var row = 1; row <= heightTable; row++) {
 
         tableGame += `<tr id="row_${row}">`;
 
-        for (var column = 1; column <= widthTable; column++ , cell++) {
+        for (var column = 1; column <= widthTable; column++, cell++) {
             tableGame += `<td class="deadCell" id="cell_${cell}">` + cellContent_tableGame + '</td>';
 
         }
@@ -371,48 +351,48 @@ function renderGrid() {
 
 
 function paintCells() {
-    
+
     for (item in filledCell) {
         var paintCell = document.getElementById(`cell_${filledCell[item]}`);
         paintCell.removeAttribute('deadCell');
         paintCell.setAttribute('class', 'availableCell');
     }
-    
-    for(var initial= 0; initial < firstIndex.length; initial++){
+
+    for (var initial = 0; initial < firstIndex.length; initial++) {
         var paintIndex_cell = document.getElementById(`cell_${firstIndex[initial]}`);
 
-        paintIndex_cell.innerHTML= `<span style="color: red; font-size:10px">${initial + 1}</span>`;
+        paintIndex_cell.innerHTML = `<span style="color: red; font-size:10px">${initial + 1}</span>`;
 
-        if(initial== 2 ||initial== 3){
-        paintIndex_cell.innerHTML= `<span style="color: red; font-size:10px">3_4</span>`;
+        if (initial == 2 || initial == 3) {
+            paintIndex_cell.innerHTML = `<span style="color: red; font-size:10px">3_4</span>`;
         }
-    }    
+    }
 }
 
-function verify() {
-    var answer = input_answer.value;
+function verificarResposta() {
+    var resposta = input_resposta.value;
 
-    if (answer != '') {
+    if (resposta != '') {
         // answer = answer.toLowerCase();
-        if (answer == special_words[cont_correctAnswer]) {
-            div_verifiedAnswer.classList.add('correctAnswer');
-            div_verifiedAnswer.innerHTML = '<br>Resposta Correta!';
+        if (resposta == special_words[cont_correctAnswer]) {
+            div_situacao.classList.add('correctAnswer');
+            div_situacao.innerHTML = '<br>Resposta Correta!';
             cont_correctAnswer++;
         }
         else {
-            div_verifiedAnswer.classList.add('wrongAnswer');
-            div_verifiedAnswer.innerHTML = '<br>Resposta Incorreta, tente novamente';
+            div_situacao.classList.add('wrongAnswer');
+            div_situacao.innerHTML = '<br>Resposta Incorreta, tente novamente';
         }
         setTimeout(function () {
-            div_verifiedAnswer.style.display = 'block';
+            div_situacao.style.display = 'block';
         }, 500);
 
         setTimeout(function () {
-            div_verifiedAnswer.style.display = 'none';
+            div_situacao.style.display = 'none';
         }, 3000);
 
-        input_answer.value = '';
-        gameSequence();
+        div_situacao.value = '';
+        continuarJogo();
     }
     else {
         alert('Por Favor, digite uma resposta na caixa de texto');

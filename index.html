@@ -11,58 +11,57 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>CompuBuild Palavras-Cruzadas</h1><br>
-            <br>
-        </div>
-    </header>
-    <article>
-        <div class="container">
-            <div style="display: none" id="div_verifiedAnswer">
-                <h3>Resposta Correta</h3>
-            </div>
-            <div id="div_game">
-                <br>
-                <div id="div_information">
-                    <h2>Intruções do Jogo</h2><br><br>
-                    <p>
-                        Clique em "Começar o Jogo" para iniciar uma partida <br><br>
-                        Perguntas serão exibidas na parte inferior do quadro <br><br>
-                        Insira a sua resposta na caixa de texto e clique em "Verificar" para conferir a sua
-                        resposta<br><br>
-                        A partida acaba quando as 16 questões forem respondidas <br><br>
-                    </p>
-                    <div class="div_button">
-                        <button class="button" id="bt_start" onclick="start()">Começar o Jogo</button>
-                        <button class="button" style="display: none" id="bt_destroyGame" onclick="destroyGrid()">Encerrar o
-                            Jogo</button>
-                </div>
-                </div>
-                <br>
-                <div id="div_canvasCruzada"></div>
-                <br>
-                <div style="display: none" id="div_questions">
-                    <center>
-                        <span id="span_questionText">Vamos encontrar as esferas do dragao</span>
-                        <input type="text" id="input_answer" placeholder="Sua Reposta"><br>
-                        <button id="button_verify" onclick="verify()" class="button">Verificar</button>
-                    </center>
+    <div class="container header">
+        <h1>CompuBuild Palavras-Cruzadas</h1>
+    </div>
 
+    <div class="container">
+        <!-- div que mostra o resultado da tentativa -->
+        <div class="div-situacao" id="div_situacao"></div>
+        <br>
+        <div class="modal" id="modal_inicio">
+            <div class="conteudo-modal">
+                <div class="modal-header">
+                    <h2>Intruções do Jogo</h2>
+                    <span onclick="fecharModal()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <p>Clique em "Começar o Jogo" para iniciar uma partida</p>
+                    <p>Perguntas serão exibidas na parte inferior do quadro
+                    <p>Insira a sua resposta na caixa de texto <br>
+                        e clique em "Verificar" para conferir a sua resposta</p>
+                    <p>A partida acaba quando as 16 questões forem respondidas</p>
+                </div>
 
+                <div class="modal-footer">
+                    <button class="button" id="bt_start" onclick="fecharModal()">Começar o Jogo</button>
                 </div>
             </div>
         </div>
+        <br>
+        <!-- div que renderiza a tabela -->
+        <div id="div_canvasCruzada"></div>
+        <br>
+        <!-- div de inserção das perguntas -->
+        <div class="div-questoes">
+            <span id="span_pergunta"></span>
+            <input type="text" id="input_resposta" placeholder="Sua Reposta"><br>
+            <button onclick="verificarResposta()" class="button">Verificar</button>
         </div>
-    </article><br><br>
-    <footer>
-        <div class="container"><br>
-            <p>Developed by Larissa Silvério e Guilherme Vieira</p>  <br>
-                    <img src="img/java-script.png" class="icon">
-                    <img src="img/html.png" class="icon">
-                    <img src="img/css.png" class="icon"> <br>  
-        </div>
-    </footer>
-    <script src="./js/script.js"></script>
+    </div>
+    <div class="container footer"><br>
+        <p>Developed by Larissa Silvério e Guilherme Vieira</p> <br>
+        <img src="img/java-script.png" class="icon">
+        <img src="img/html.png" class="icon">
+        <img src="img/css.png" class="icon"> <br>
+    </div>
 </body>
+
 </html>
+<script src="./js/script.js"></script>
