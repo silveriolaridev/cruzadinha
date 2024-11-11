@@ -21,7 +21,7 @@
             <div class="cruzadinha" id="div_canvasCruzada"></div>
             <!-- div de inserção das perguntas -->
             <div class="div-questoes">
-                <h1>Perguntas</h1>
+                <h1 id="h1_titulo">Perguntas</h1>
                 <!-- span que mostra o resultado da tentativa -->
                 <span class="span-situacao" id="span_situacao"></span>
 
@@ -31,7 +31,8 @@
                 </div>
                 <!-- input do usuario para inserir sua resposta -->
                 <input type="text" id="input_resposta" placeholder="Sua Reposta"><br>
-                <button onclick="verificarResposta()" class="button">Verificar</button>
+                <button onclick="verificarResposta()" class="button" id="btn_verificar">Verificar</button>
+                <button class="button" id="btn_reiniciar" onclick="reiniciar()" style="display: none;">Reiniciar</button>
             </div>
         </div>
     </div>
