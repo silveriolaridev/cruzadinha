@@ -1,4 +1,4 @@
-# Projeto de Palavras Cruzadas de Arquitetura de Computadores
+# Projeto CompuBuild Cruzadinha
 
 Este é um jogo de palavras cruzadas interativo focado em conceitos de arquitetura de computadores, desenvolvido com **JavaScript**, **HTML** e **CSS**, sendo uma forma divertida de revisar os principais componentes e tecnologias usadas em sistemas computacionais.
 
