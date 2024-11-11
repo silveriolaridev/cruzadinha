@@ -13,7 +13,7 @@ Este é um jogo de palavras cruzadas interativo focado em conceitos de arquitetu
 ## 🛠️ Tecnologias Utilizadas
 
 - **HTML**: Estrutura do jogo.
-- **CSS**: Estilização e design responsivo.
+- **CSS**: Estilização e design.
 - **JavaScript**: Lógica do jogo e validação das respostas.
 
 ## 🚀 Como Usar
