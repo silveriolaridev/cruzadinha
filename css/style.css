@@ -131,6 +131,11 @@ td {
     margin-bottom: 50px;
 }
 
+.span-situacao{
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .button {
     display: inline-block;
 }
