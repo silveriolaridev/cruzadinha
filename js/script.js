@@ -1,22 +1,22 @@
-var special_words = ['cpu', 'ULA', 'Registradores', 'RAM', 'rom', 'EPROM', 'FLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'Quad Core'];
+var special_words = ['CPU', 'ULA', 'REGISTRADORES', 'RAM', 'ROM', 'EPROM', 'FLASH', 'MEMÓRIA DE MASSA', 'DMA', 'CS', 'ADDRESSBUS', 'DATA BUS', 'I5', 'I7', 'DUAL CORE', 'QUAD CORE'];
 
 var questions_list = [
-    'Qual é a sigla para Central Process Unit?',
-    'Um circuto digital que realiza operações lógicas e aritméticas. Qual é o nome deste componente?',
-    'Tipo de memória que se encontra no topo da hierarquia de memória',
-    'Tipo de memória volátil que tem como nome Random Acess Memory. Qual é a sigla deste componente?',
-    'Tipo de memória não volátil que oferece dados apenas para leitura',
-    'Tipo de memória não volátil que precisa ter seu chip exposto a luz ultravioleta para apagar seu conteúdo',
-    'Tipo particular de EEPROM que mantém as informações armazenadas sem a necessidade de uma fonte de energia elétrica',
-    'Tipo de memória que precisa ter seu conteúdo copiado na RAM para poder ser executado pela CPU',
-    'Permite que periféricos acessem diretamente a RAM sem ocupar processamento',
-    'Também conhecido como Slave Select (SS). Usado para selecionar um ou um conjunto de circuitos que estão conectados no computador',
-    'Grupo de linhas ou trilhas usadas para se referir a um endereço físico na memória. O número de trilhas determina a quantidade de endereços na memória física',
-    'Também chamado de Memory Bus. É responsável para carregar os dados.',
-    'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em setembro de 2009',
-    'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em novembro de 2008',
-    'Tipo de processador que possui dois processadores ou melhor dizendo ‘dois centros, núcleos ou cores de execução‘ no mesmo circuito integrado.  Cada core tem sua própria memória cash e controlador o que permite que funcione mais efetivamente do que um processador single',
-    'Segue o mesmo princípio de um dual-core, mas agora em teoria tem o dobro da capacidade de processamento'
+    'Qual o componente conhecido como cerébro do computador (sigla)',
+    'Parte do processador responsável por operações matemáticas (sigla)',
+    'Tipo de memória mais rápida dentro do processador',
+    'Memória primária que armazena dados temporários do sistema (sigla)',
+    'Memória usada para guardar a BIOS (sigla)',
+    'Tipo de memória não volátil usada para armazena o firmware do sistema (sigla)',
+    'Memória não volátil usada para armazenar dados em dispositivos como pendrives',
+    'Memória secundária usada em HDs e SSDs',
+    'Permite que dispositivos de I/O acessem diretamente a RAM (sigla)',
+    'Habilita e desabilita qualquer memória solicitada pelo sistema (sigla)',
+    'Barramento de endereço (inglês)',
+    'Hardwares responsável por transportar dados entre componentes de um sistema',
+    'Modelo de processador desenvolvido pela Intel que teve sua primeira versão lançada em setembro de 2009',
+    'Modelo de processador desenvolvido pela Intel que teve sua primeira versão lançada em novembro de 2008',
+    'Tipo de processador que possui dois núcleos',
+    'Tipo de processador que possui dois núcleos a mais que o anterior'
 ];
 
 var filledCell = [2, 20, 38, 133, 134, 135, 59, 77, 95, 113, 131, 149,
@@ -364,7 +364,7 @@ function listarPerguntas() {
     for (var i = 0; i < tamanho_lista; i++) {
         estrutura += 
         `
-        <span id="span_pergunta${i}">${i+1}. ${questions_list[i]}</span> <br> <br>
+        <span id="span_pergunta${i}"><b>${i+1}</b>. ${questions_list[i]}</span> <br> <br>
         `;
     }
 
