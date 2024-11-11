@@ -12,7 +12,7 @@ var questions_list = [
     'Permite que dispositivos de I/O acessem diretamente a RAM (sigla)',
     'Habilita e desabilita qualquer memória solicitada pelo sistema (sigla)',
     'Barramento de endereço (inglês)',
-    'Hardwares responsável por transportar dados entre componentes de um sistema',
+    'Hardware responsável por transportar dados entre componentes de um sistema',
     'Modelo de processador desenvolvido pela Intel que teve sua primeira versão lançada em setembro de 2009',
     'Modelo de processador desenvolvido pela Intel que teve sua primeira versão lançada em novembro de 2008',
     'Tipo de processador que possui dois núcleos',
