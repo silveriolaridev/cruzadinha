@@ -1,7 +1,7 @@
 var special_words = ['CPU', 'ULA', 'REGISTRADORES', 'RAM', 'ROM', 'EPROM', 'FLASH', 'MEMÓRIA DE MASSA', 'DMA', 'CS', 'ADDRESS BUS', 'DATA BUS', 'I5', 'I7', 'DUAL CORE', 'QUAD CORE'];
 
 var questions_list = [
-    'Qual o componente conhecido como cerébro do computador (sigla)',
+    'Qual o componente conhecido como cérebro do computador (sigla)',
     'Parte do processador responsável por operações matemáticas (sigla)',
     'Tipo de memória mais rápida dentro do processador',
     'Memória primária que armazena dados temporários do sistema (sigla)',
